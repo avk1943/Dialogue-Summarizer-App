@@ -55,7 +55,7 @@ Process involved-
 * Pull your image from ECR to EC2
 * Launch your Docker image in EC2
 
-Policy used-
+Policies used-
 * AmazonEC2ContainerRegistryFullAccess
 * AmazonEC2FullAccess
 
