@@ -9,7 +9,7 @@ This repository documents the development and deployment of a Dialogue Summariza
 * Fine-tuning the HuggingFace PEGASUS (Transformer) model on custom (Samsum) data.
 * Modular coding practices for better code orgnization and maintainability.
 * Integration with FastAPI for easy user interface.
-* Deployment of the optimized model using AWS services such as EC2, and ECR.
+* Deployment of the optimized model using Docker and AWS services such as EC2, and ECR
 * Continuous Integration and Continuous Deployment (CI/CD) workflows using GitHub Actions.
 
 ### Local Run of the Application
@@ -42,5 +42,63 @@ Now, open your local host and port on your web browser to view the application.
 
 ### Project CI/CD Deployment using AWS and GitHub Actions
 
+#### Step 1: Login into your AWS Console
 
-ECR repo URI: 654654169409.dkr.ecr.us-west-1.amazonaws.com/text-s
+#### Step 2: Create an IAM user for deployment
+
+AWS EC2 is a virtual machine, and AWS ECR (Elastic Container Registry) to save your Docker image in AWS.
+
+Process involved-
+* Build a Docker image of your source code
+* Push the Docker image to the ECR
+* Launch you EC2
+* Pull your image from ECR to EC2
+* Launch your Docker image in EC2
+
+Policy used-
+* AmazonEC2ContainerRegistryFullAccess
+* AmazonEC2FullAccess
+
+#### Step 3: Create ECR Repo to store/save Docker Image
+Make sure to save your ECR repo URI.
+<!-- ECR repo URI: 654654169409.dkr.ecr.us-west-1.amazonaws.com/text-s -->
+
+#### Step 4: Create EC2 machine with Ubuntu configuration
+
+#### Step 5: Open EC2 and Install Docker in EC2 Machine
+
+Run each of the code lines for the installation:
+```
+sudo apt-get update -y
+sudo apt-get upgrade
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+newgrp docker
+```
+
+#### Step 6: Configure EC2 as a self-hosted runner
+
+```
+setting>actions>runner>new self hosted runner> choose os> then run command one by one
+```
+
+#### Step 7: Setup GitHub Secrets for the following tags
+
+```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_REGION
+AWS_ECR_LOGIN_URI
+ECR_REPOSITORY_NAME
+```
+
+### Built With
+
+* [PEGASUS](https://huggingface.co/google/pegasus-cnn_dailymail) - The HuggingFace model used
+
+### Acknowledgements
+
+This project was possible due the theoretical insructional videos by:
+* Krish Naik
+* Bappy Ahmed
