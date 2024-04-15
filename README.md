@@ -15,6 +15,7 @@ This repository documents the development and deployment of a Dialogue Summariza
 ### Local Run of the Application
 
 With the following steps, you can run the user interface on your local machine.
+Please clone the repo for run on your local machine.
 
 #### Creating Conda (VM) Environment
 
