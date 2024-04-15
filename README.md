@@ -1,7 +1,7 @@
 # End-to-End Dialogue Summarizer
 
 ### Introduction
-Dialogue Summarization is a very important aspect of Natural Language Processing (NLP) applications, particularly in use cases where we need fast response or vast amounts of text needs to condensed. 
+Dialogue Summarization is a very important aspect of Natural Language Processing (NLP) applications, particularly in use cases where we need fast responses or vast amounts of text that need to be condensed.
 
 This repository documents the development and deployment of a Dialogue Summarization model focused on fine-tuning a HuggingFace PEGASUS model on Samsum data and deployment using AWS.
 
