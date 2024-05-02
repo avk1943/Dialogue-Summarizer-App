@@ -62,7 +62,6 @@ Policies used-
 
 #### Step 3: Create ECR Repo to store/save Docker Image
 Make sure to save your ECR repo URI.
-<!-- ECR repo URI: 654654169409.dkr.ecr.us-west-1.amazonaws.com/text-s -->
 
 #### Step 4: Create EC2 machine with Ubuntu configuration
 
